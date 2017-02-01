@@ -14,9 +14,9 @@ var subsectionsRegex = '(?:\\([a-zA-Z0-9]+\\))';
 // 13, 12(a)(g) or (b)
 var sectionRegex = '(\\d+' + subsectionsRegex + '*|' + subsectionsRegex + '+)';
 // section 13(g) of title 12 USC
-var sectionsRegex = 'sections? (' + sectionRegex + '(?:, (?:and )?' + sectionRegex + ')*) of title (\\d+),? ' + uscRegex;
+var sectionsRegex = 'sections? (' + sectionRegex + '(?:(?:,|,? and) ' + sectionRegex + ')*) of title (\\d+),? ' + uscRegex;
 // 12 USC 13(g)
-var compactSectionsRegex = '(\\d+) ' + uscRegex + ' ' + sectionRegex + '(?:, (?:and )?' + sectionRegex + ')*';
+var compactSectionsRegex = '(\\d+) ' + uscRegex + ' ' + sectionRegex + '(?:(?:,|,? and) ' + sectionRegex + ')*';
 
 function parseSection(context, str) {
   var sectionParts = str.split(/[()]+/g);
